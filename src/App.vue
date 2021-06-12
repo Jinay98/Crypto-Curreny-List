@@ -15,12 +15,9 @@
                 <div>
                   <b-dropdown
                     id="dropdown-1"
-                    text="No of Records"
+                    text="No of Entries"
                     class="m-md-2"
                   >
-                    <b-dropdown-item disabled value="0"
-                      >Select Page Size</b-dropdown-item
-                    >
                     <b-dropdown-item
                       v-for="option in this.dropdownOptions"
                       :key="option.value"
@@ -96,10 +93,7 @@ export default {
       this.pageOfItems = pageOfItems;
     },
     setNoOfEntries(pageSize) {
-      console.log(pageSize);
-      console.log(this.noOfEntries);
       this.noOfEntries = pageSize;
-      console.log(this.noOfEntries);
       this.getEndpointData()
     },
     getEndpointData() {
