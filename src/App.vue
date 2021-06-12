@@ -89,11 +89,7 @@ export default {
     };
   },
   mounted() {
-    var url = "https://api.coinranking.com/v1/public/coins/?limit=100";
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => (this.exampleItems = data.data.coins))
-      .catch((err) => console.log(err.message));
+    this.getEndpointData()
   },
   methods: {
     onChangePage(pageOfItems) {
@@ -104,6 +100,9 @@ export default {
       console.log(this.noOfEntries);
       this.noOfEntries = pageSize;
       console.log(this.noOfEntries);
+      this.getEndpointData()
+    },
+    getEndpointData() {
       var url = "https://api.coinranking.com/v1/public/coins/?limit=100";
       fetch(url)
         .then((res) => res.json())
